@@ -24,15 +24,17 @@ def load_and_preprocess_data(config):
 
     #Solo con clases que tengan más de 5 
     conteo = df['GeneType'].value_counts()
-    clases_validas = conteo[conteo >= 5].index
+    clases_validas = conteo[conteo >= min_samples].index
     df = df[df['GeneType'].isin(clases_validas)].copy()
+
+    print("Clases únicas: ", df['GeneType'].unique())
 
     #label encoder para codificar la variable objetivo
     le = LabelEncoder()
     y = le.fit_transform(df['GeneType'])
 
     #kmers para dividir en secuencias de 6
-    def kmers(sequence, size=6):
+    def kmers(sequence, size=kmer_size):
         return ' '.join([sequence[i:i+size] for i in range(len(sequence)-size+1)])
 
     df['Kmers'] = df['NucleotideSequence'].apply(kmers)
@@ -52,7 +54,7 @@ def load_and_preprocess_data(config):
     X_test_kmers = vectorizer.transform(X_test["Kmers"])
 
     #TfidVectorizaer: transformar cadenas de texto en número
-    tfidf = TfidfVectorizer(max_features=100)
+    tfidf = TfidfVectorizer(max_features=max_features)
     X_train_desc = tfidf.fit_transform(X_train['Description'].fillna(''))
     X_test_desc = tfidf.transform(X_test['Description'].fillna(''))
 
@@ -65,8 +67,4 @@ def load_and_preprocess_data(config):
     X_train = hstack([X_train_kmers, X_train_desc, X_train_group])
     X_test = hstack([X_test_kmers, X_test_desc, X_test_group])
 
-
-
-print(X_train.shape)
-print(X_test.shape)
-
+    return X_train, X_test, y_train, y_test

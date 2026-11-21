@@ -4,3 +4,12 @@ random_state: 42
 kmer_size: 6
 min_samples: 5
 tfidf_max_features: 100
+
+#modelos
+
+DecisionTree: 
+  max_depth: 10
+
+RandomForest:
+
+KNN:
