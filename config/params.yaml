@@ -1,0 +1,25 @@
+data_path: "DNA_classification.csv"
+test_size: 0.2
+random_state: 42
+kmer_size: 6
+min_samples: 5
+tfidf_max_features: 100
+
+model_name: "RandomForest"
+
+RandomForest:
+  n_estimators: 100
+  max_depth: 10
+  random_state: 42
+
+KNN:
+  n_neighbors: 5
+  weights: uniform
+
+DecisionTree:
+  max_depth: 10
+  criterion: gini
+  random_state: 42
+
+models_path: "models/"
+outputs_path: "outputs/"
