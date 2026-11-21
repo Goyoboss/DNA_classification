@@ -3,7 +3,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score, recall_score, precision_score, confusion_matrix, f1_score
 
-from src.Preprocesamiento import load_and_preprocess_data
+from src.data_loader import load_and_preprocess_data
 
 
 def train_and_save_model(X_train, y_train, X_test, y_test, config):

@@ -3,8 +3,8 @@ import json
 import yaml
 import joblib
 
-from src.Preprocesamiento import load_and_preprocess_data
-from src.Model_trainer import train_and_save_model
+from src.data_loader import load_and_preprocess_data
+from src.model_trainer import train_and_save_model
 
 
 # Ruta principal del proyecto
