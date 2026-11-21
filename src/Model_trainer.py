@@ -3,22 +3,20 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score, recall_score, precision_score, confusion_matrix, f1_score
 
-from src.data_loader import load_and_preprocess_data
-
 
 def train_and_save_model(X_train, y_train, X_test, y_test, config):
-    model = config["model_name"]
+    model_name = config["model_name"]
     #si se escogió el modelo de árboles de decisión
-    if model=="DecisionTree":
+    if model_name=="DecisionTree":
         model = DecisionTreeClassifier(**config["DecisionTree"])
     #si se escogió el modelo de bosques aleatorios
-    elif model=="RandomForest":
+    elif model_name=="RandomForest":
         model = RandomForestClassifier(**config["RandomForest"])
     #si se escogió el modelo de knn
-    elif model=="KNN":
+    elif model_name=="KNN":
         model = KNeighborsClassifier(**config["KNN"])
     else:
-        print(f"No se admite {model}, solo: DecisionTree, RandomForest y KNN")
+        raise ValueError(f"Modelo no soportado: {model_name}")
 
     #se entrena el modelo
     model.fit(X_train, y_train)

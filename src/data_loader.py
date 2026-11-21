@@ -49,7 +49,6 @@ def load_and_preprocess_data(config):
 
     #CountVectorizer: letras a números
     vectorizer = CountVectorizer()
-    vectorizer = CountVectorizer()
     X_train_kmers = vectorizer.fit_transform(X_train["Kmers"])
     X_test_kmers = vectorizer.transform(X_test["Kmers"])
 
@@ -67,4 +66,4 @@ def load_and_preprocess_data(config):
     X_train = hstack([X_train_kmers, X_train_desc, X_train_group])
     X_test = hstack([X_test_kmers, X_test_desc, X_test_group])
 
-    return X_train, X_test, y_train, y_test
+    return X_train, X_test, y_train, y_test, le, vectorizer, tfidf, encoder
