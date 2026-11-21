@@ -1,5 +1,6 @@
 import yaml
-from Preprocesamiento import load_and_preprocess_data
+from src.Preprocesamiento import load_and_preprocess_data
+from src.Model_trainer import train_and_save_model
 # (importa también train_and_save_model si la tienes en otro archivo)
 
 # 1. Abrir el archivo config.yaml y cargarlo en la variable 'config'

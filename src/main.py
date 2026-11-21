@@ -1,11 +1,10 @@
-
 from pathlib import Path
 import json
 import yaml
 import joblib
 
-from Preprocesamiento import load_and_preprocess_data
-from Model_trainer import train_and_save_model
+from src.Preprocesamiento import load_and_preprocess_data
+from src.Model_trainer import train_and_save_model
 
 
 # Ruta principal del proyecto
