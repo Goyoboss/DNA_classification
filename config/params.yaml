@@ -1,27 +1,25 @@
-data: #agrupa parametros
-  test_size: 0.2 #el 20% de los datos se usaran para para evaluar el modelo
-  random_state: 42 #semilla aleatoria
-  kmer_size: 6
-  min_samples: 5
-  tfidf_max_features: 100
+data_path: "DNA_classification.csv"
+test_size: 0.2
+random_state: 42
+kmer_size: 6
+min_samples: 5
+tfidf_max_features: 100
 
-models:
-  random_forest:
-    n_estimators: 100 #se construiran 100 arboles de decision 
-    max_depth: 10 #profunidad de 10 niveles
-    random_state: 42 
+model_name: "RandomForest"
 
+RandomForest:
+  n_estimators: 100
+  max_depth: 10
+  random_state: 42
 
-  knn:
-    n_neighbors: 5 #se usaran los 5 vecinos mas cercanos
-    weights: uniform
+KNN:
+  n_neighbors: 5
+  weights: uniform
 
-  decision_tree:
-    max_depth: 10
-    criterion: gini #define cómo se evalúa la calidad de las divisiones del árbol. El criterio Gini mide la impureza de los grupos de datos: cuanto menor es, más homogéneos son.
-    random_state: 42
+DecisionTree:
+  max_depth: 10
+  criterion: gini
+  random_state: 42
 
-paths:
-  data: "DNA_classification.csv"
-  models: "models/"
-  outputs: "outputs/"
+models_path: "models/"
+outputs_path: "outputs/"

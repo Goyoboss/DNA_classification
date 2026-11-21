@@ -62,4 +62,4 @@ def train_and_save_model(X_train, y_train, X_test, y_test, config):
         "f1_test": float(f1_test)
     }
 
-    return metricas
+    return model, metricas
