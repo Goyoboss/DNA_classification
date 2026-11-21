@@ -61,9 +61,19 @@ def ejecutar_pipeline():
     # Ejecutar el preprocesamiento
     print("Iniciando preprocesamiento de datos...")
 
-    X_train, X_test, y_train, y_test = load_and_preprocess_data(
+    # Ejecutar el preprocesamiento
+    print("Iniciando preprocesamiento de datos...")
+
+    X_train, X_test, y_train, y_test, le, vectorizer, tfidf, encoder = load_and_preprocess_data(
         configuracion
     )
+
+    # Guardar los artefactos de preprocesamiento para usarlos en predict.py
+    ruta_modelos = BASE_DIR / configuracion["models_path"]
+    joblib.dump(le, ruta_modelos / "label_encoder.pkl")
+    joblib.dump(vectorizer, ruta_modelos / "vectorizer.pkl")
+    joblib.dump(tfidf, ruta_modelos / "tfidf.pkl")
+    joblib.dump(encoder, ruta_modelos / "onehot.pkl")
 
     print("Preprocesamiento completado correctamente.")
 
