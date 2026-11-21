@@ -4,4 +4,4 @@ seaborn==0.13.2
 matplotlib==3.10.0
 scikit-learn==1.6.1
 PyYAML
-
+scipy>=1.16.0
