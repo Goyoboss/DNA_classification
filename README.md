@@ -1,14 +1,14 @@
-#**Clasificación de ADN a través del reconocimiento de patrones de secuencias nucleotídicas**
+**Clasificación de ADN a través del reconocimiento de patrones de secuencias nucleotídicas**
 
 ___
 
-##**Objetivo del proyecto**
+**Objetivo del proyecto**
 
 Construir un pipeline de Machine Learning modular, reproducible y colaborativo para predecir el tipo de gen de acuerdo a patrones encontrados en las secuencias nucleotídicas.
 
 ___
 
-##**Dataset**
+**Dataset**
 
 **Fuente:** [DNA sequence prediction](https://www.kaggle.com/datasets/harshvardhan21/dna-sequence-prediction)
 
@@ -18,7 +18,7 @@ ___
 
 ___
 
-##**Estructuras de carpetas**
+**Estructuras de carpetas**
 
 ```
 DNA_classification/
